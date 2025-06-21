@@ -1,103 +1,56 @@
-import Image from "next/image";
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import Spacer from '@/components/Spacer';
+
+const About = dynamic(() => import('@/components/About'));
+const Services = dynamic(() => import('@/components/Services'));
+const Geography = dynamic(() => import('@/components/Geography'));
+const ContactUs = dynamic(() => import('@/components/ContactUs'));
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="text-left bg-dark-gray min-h-screen">
+      {/* Hero Section */}
+      <div
+        className="h-screen flex items-center relative bg-center bg-cover"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255, 144, 47, 0.85), rgba(255, 183, 91, 0.7)), url(/images/cover.jpg)",
+        }}
+      >
+        <div className="w-full px-5 md:px-10 lg:px-16 xl:px-24 2xl:px-32 lg:translate-y-24">
+          <h1 
+            className="text-4xl md:text-5xl lg:text-6xl 2xl:text-6xl font-bold mb-6 text-left max-w-3xl animate-fadeInLeft"
+            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Мы обеспечиваем качественные ремонтно-строительные услуги, на которые можно положиться.
+          </h1>
+          <p 
+            className="text-lg md:text-xl lg:text-2xl 2xl:text-3xl mb-8 text-left leading-relaxed animate-fadeInLeft"
+            style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
           >
-            Read our docs
-          </a>
+            Свяжитесь с нами, и начнем реализовывать ваши мечты!
+          </p>
+          <div className="text-left animate-slide-up animate-delay-2000">
+            <Link
+              href="/contacts"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-gray-900/80 text-white text-xl rounded-md transition-all duration-300 hover:bg-white hover:text-gray-900 hover:shadow-lg hover:-translate-y-1"
+            >
+              Связаться с нами
+              <span className="text-2xl">→</span>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      <Spacer />
+      <About />
+      <Spacer />
+      <Services />
+      <Spacer />
+      <Geography />
+      <Spacer />
+      <ContactUs />
     </div>
   );
 }
