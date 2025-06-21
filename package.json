@@ -37,7 +37,12 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "postcss": "^8.5.4",
-    "tailwindcss": "^4.1.8",
+    "tailwindcss": "^4.1.10",
     "typescript": "^5"
+  },
+  "optionalDependencies": {
+    "@tailwindcss/oxide-linux-x64-gnu": "^4",
+    "lightningcss-linux-x64-gnu": "^1",
+    "@img/sharp-linux-x64": "0.34.2"
   }
 }

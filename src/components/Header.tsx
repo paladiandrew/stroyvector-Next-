@@ -9,7 +9,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed w-full h-24 bg-gradient-to-r from-primary to-primary-hover flex items-center px-5 z-50">
+    <header className="fixed w-full h-24 bg-gradient-to-r from-primary to-primary-hover flex items-center px-5 z-[1000]">
       <div className="flex items-center mr-auto">
         <Image 
           src={logo} 
