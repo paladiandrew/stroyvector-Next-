@@ -2,9 +2,9 @@
 FROM node:20-slim AS deps
 WORKDIR /app
 
-# Install only production deps first for better cache utilisation
+# Install all dependencies
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm ci
 
 # -------- builder --------
 FROM node:20-slim AS builder
@@ -30,6 +30,9 @@ COPY --from=builder /app/public ./public
 
 # include runtime dependencies such as sharp binary bindings
 COPY --from=builder /app/node_modules ./node_modules
+
+# Remove dev dependencies from final image
+RUN npm prune --production
 
 EXPOSE 3000
 CMD ["node", "server.js"]

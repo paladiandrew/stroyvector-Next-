@@ -3,22 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import a from '@/../public/projects/a.jpg';
-import b from '@/../public/projects/b.jpg';
-import c from '@/../public/projects/c.jpg';
-import d from '@/../public/projects/d.jpg';
-import e from '@/../public/projects/e.jpg';
-import f from '@/../public/projects/f.jpg';
-import g from '@/../public/projects/g.jpg';
-
 const images = [
-  { src: a, alt: 'Проект A' },
-  { src: b, alt: 'Проект B' },
-  { src: c, alt: 'Проект C' },
-  { src: d, alt: 'Проект D' },
-  { src: e, alt: 'Проект E' },
-  { src: f, alt: 'Проект F' },
-  { src: g, alt: 'Проект G' },
+  { src: '/projects/a.jpg', alt: 'Проект A' },
+  { src: '/projects/b.jpg', alt: 'Проект B' },
+  { src: '/projects/c.jpg', alt: 'Проект C' },
+  { src: '/projects/d.jpg', alt: 'Проект D' },
+  { src: '/projects/e.jpg', alt: 'Проект E' },
+  { src: '/projects/f.jpg', alt: 'Проект F' },
+  { src: '/projects/g.jpg', alt: 'Проект G' },
 ];
 
 export default function Projects() {
