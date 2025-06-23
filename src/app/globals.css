@@ -90,7 +90,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* От 12px на очень маленьких экранах до 22px на 4K */
     font-size: clamp(12px, 0.9vw + 0.5vh, 22px);
   }
 }

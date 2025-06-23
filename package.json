@@ -3,8 +3,9 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
+    "clean": "rimraf .next && rimraf .next/standalone",
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "npm run clean && next build",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start",
     "lint": "next lint"
@@ -37,12 +38,13 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "postcss": "^8.5.4",
+    "rimraf": "^6.0.1",
     "tailwindcss": "^4.1.10",
     "typescript": "^5"
   },
   "optionalDependencies": {
+    "@img/sharp-linux-x64": "0.34.2",
     "@tailwindcss/oxide-linux-x64-gnu": "^4",
-    "lightningcss-linux-x64-gnu": "^1",
-    "@img/sharp-linux-x64": "0.34.2"
+    "lightningcss-linux-x64-gnu": "^1"
   }
 }

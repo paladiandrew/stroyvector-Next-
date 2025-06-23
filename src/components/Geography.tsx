@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 
 // Dynamically import MapLeaflet to avoid SSR issues
 const MapLeaflet = dynamic(() => import('@/components/MapLeaflet'), { ssr: false });

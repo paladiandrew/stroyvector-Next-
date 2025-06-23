@@ -1,5 +1,3 @@
-'use client';
-
 import { cities } from '@/data/cities';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -12,25 +10,27 @@ export function generateStaticParams() {
   return cities.map((c) => ({ city: c.slug }));
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const entry = cities.find((c) => c.slug === params.city);
-  const cityName = entry?.name ?? params.city;
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { city } = await params;
+  const entry = cities.find((c) => c.slug === city);
+  const cityName = entry?.name ?? city;
   return {
     title: `Ремонтно-строительные услуги в ${cityName} — СТРОЙВЕКТОР`,
     description: `СТРОЙВЕКТОР предоставляет ремонт, строительство домов, инженерные сети и сантехнические услуги в ${cityName} и области.`,
     openGraph: {
       title: `Ремонтно-строительные услуги в ${cityName} — СТРОЙВЕКТОР`,
       description: `СТРОЙВЕКТОР предоставляет ремонт, строительство домов, инженерные сети и сантехнические услуги в ${cityName} и области.`,
-      url: `https://stroy-vector.com/regions/${params.city}`,
+      url: `https://stroy-vector.com/regions/${city}`,
       siteName: 'СТРОЙВЕКТОР',
     },
-    alternates: { canonical: `https://stroy-vector.com/regions/${params.city}` },
+    alternates: { canonical: `https://stroy-vector.com/regions/${city}` },
   };
 }
 
-export default function CityPage({ params }: { params: Params }) {
-  const entry = cities.find((c) => c.slug === params.city);
-  const cityName = entry?.name ?? params.city;
+export default async function CityPage({ params }: { params: Promise<Params>; searchParams?: Promise<Record<string, string | string[]>> }) {
+  const { city } = await params;
+  const entry = cities.find((c) => c.slug === city);
+  const cityName = entry?.name ?? city;
   return (
     <div className="bg-dark text-white px-4 sm:px-6 lg:px-10 py-12">
       <h1 className="text-3xl sm:text-4xl lg:text-5xl mb-6 text-primary pt-[100px]">
