@@ -1,6 +1,14 @@
+import type { Metadata } from 'next';
+
+export const generateMetadata = (): Metadata => ({
+  title: 'Контакты — СТРОЙВЕКТОР',
+  description: 'Свяжитесь с ООО «СТРОЙВЕКТОР»: телефон +7 (977) 884-09-40, email stroy-vector@yandex.ru. Работаем Москва, Калуга, Тула, Наро-Фоминск, Владимир.',
+  alternates: { canonical: 'https://stroy-vector.com/contacts' },
+});
+
 export default function Contacts() {
   return (
-    <div className="flex flex-col flex-1 bg-dark text-white">
+    <div className="flex flex-col min-h-full bg-dark text-white">
       {/* Контент */}
       <div className="flex-grow pt-40 pb-12 px-12 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl mb-8 text-primary">Контакты</h1>

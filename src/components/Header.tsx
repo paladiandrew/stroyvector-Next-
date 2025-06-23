@@ -41,6 +41,7 @@ export default function Header() {
         className="lg:hidden text-3xl text-gray-800" 
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Меню"
+        aria-expanded={isMenuOpen}
       >
         {isMenuOpen ? '✖' : '☰'}
       </button>

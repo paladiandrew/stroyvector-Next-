@@ -1,7 +1,6 @@
 import Script from "next/script";
 
 interface Props {
-  /** Явный ID счётчика. Если не передан — берётся из env (NEXT_PUBLIC_YM_ID). */
   id?: string;
 }
 
@@ -24,12 +23,11 @@ export default function YandexMetrica({ id }: Props) {
               clickmap:true,
               trackLinks:true,
               accurateTrackBounce:true,
-              webvisor:true
+              webvisor:false
           });
         `}
       </Script>
       <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`https://mc.yandex.ru/watch/${counterId}`} style={{ position: "absolute", left: "-9999px" }} alt="" />
       </noscript>
     </>

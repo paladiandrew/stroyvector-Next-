@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 // Dynamically import MapLeaflet to avoid SSR issues
 const MapLeaflet = dynamic(() => import('@/components/MapLeaflet'), { ssr: false });
@@ -28,6 +29,7 @@ export default function Geography() {
       <div className="w-full lg:w-1/2 mt-4 lg:mt-0">
         <MapLeaflet />
       </div>
+      {/* ссылки на города убраны по запросу */}
     </div>
   );
 }

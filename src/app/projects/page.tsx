@@ -46,20 +46,23 @@ export default function Projects() {
 
       {currentIndex !== null && (
         <div 
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-[1100] p-4"
           onClick={() => setCurrentIndex(null)}
         >
           <div className="relative max-w-full max-h-full">
             <button 
-              className="absolute -top-14 right-0 bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center text-xl hover:bg-primary-hover transition-colors shadow-lg"
-              onClick={() => setCurrentIndex(null)}
+              className="absolute top-2 right-2 bg-primary/80 hover:bg-primary-hover text-white rounded-full w-10 h-10 flex items-center justify-center text-lg transition-colors shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIndex(null);
+              }}
             >
               ✖
             </button>
 
             {currentIndex! > 0 && (
               <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl hover:bg-primary-hover transition-colors shadow-lg"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary/80 text-white rounded-full w-10 h-10 flex items-center justify-center text-lg hover:bg-primary-hover transition-colors shadow-lg"
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentIndex((prev) => (prev !== null ? prev - 1 : prev));
@@ -71,7 +74,7 @@ export default function Projects() {
 
             {currentIndex! < images.length - 1 && (
               <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center text-2xl hover:bg-primary-hover transition-colors shadow-lg"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary/80 text-white rounded-full w-10 h-10 flex items-center justify-center text-lg hover:bg-primary-hover transition-colors shadow-lg"
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentIndex((prev) => (prev !== null ? prev + 1 : prev));
